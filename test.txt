@@ -1,0 +1,44 @@
+Write a simple program to store some simple HTML - basic tags and attributes. Don't worry about the encoding or HTML features except for the tags and tag attributes. You cannot use any existing HTML libraries or APIs. Your code should run and print the formatted HTML output. Indentation is required on the output.
+
+// class Tag
+//    newTag(name, whatGoesInTag(optional))  => returns the tag
+//    AddAttribute(attributeName, attributeContent) => doesn;t return anything
+//    SetValue(contentOfATag)
+//    print();  => print the content of the tag with indentation, shoudl look just like a html file 
+
+
+Example code in Javascript
+
+
+let root = new Tag("html")
+let head = root.newTag("head")
+let title = head.newTag("title", "Cool Title!")
+
+let body = root.newTag("body")
+let main = body.newTag("div")
+main.AddAttribute("id", "main")
+main.AddAttribute("class", "main")
+let heading = main.newTag("h1", "Nice Heading")
+let p1 = main.newTag("p")
+p1.SetValue("A paragraph of text ...")
+let p2 = main.newTag("p")
+p2.SetValue("Another paragraph of text ...")
+let a1 = p2.newTag("a", "link to somewhere")
+a1.AddAttribute("href", "https://link.to.somewhere")
+root.print()
+
+OUTPUT
+<html>
+	<head>
+		<title>Cool Title!</title>
+	</head>
+	<body>
+		<div id="main" class="main">
+			<h1>Nice Heading!</h1>
+			<p>A paragraph of text ...</p>
+			<p>Another paragraph of text ...
+				<a href="https://link.to.somewhere">Link to somewhere</a>
+			</p>
+		</div>
+	</body>
+</html>
